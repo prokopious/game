@@ -1,0 +1,127 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>Vue Zelda Game!</title>
+    <style>
+
+      html {
+        background: url(underworld.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+      }
+
+      #ganon {
+        background-color: rgba(255, 0, 0, 0);
+        color: transparent;
+        border: none;
+        width: 200px;
+        height: 200px;
+      
+      }
+
+      .count {
+        color: white;
+        font-size: 22px;
+        width: 200px;
+        padding: 5px;
+        background-color: red;
+        
+   
+      }
+
+      #app {
+        background-color: red;
+        font-size: 20px;
+        padding: 15px;
+      }
+
+      #app2 {
+        padding-left: 40%;
+        padding-top: calc(200px + 1vw);
+     
+      }
+
+      #ganon2 {
+     width: 150px;
+   
+     height: auto;
+      }
+      #ganon:focus {
+    background-color: #0054ba00;
+    border: 3px solid rgba(255, 0, 0, 0);
+    display: none;
+}
+
+      #ganon:active {
+        color: rgba(255, 0, 0, 0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">{{message}}</div>
+   
+    <div id="app2">
+      <h2 class="count">Points scored with Princess Zelda: {{ count }}</h2>
+     
+      <img id="ganon2" v-show="isShowing" @click.prevent="incrementCounter" src="ganon.png"
+          
+           ></img>
+         
+     
+     <button id="ganon" @click="isShowing ^= true">Click Me</button>
+   </div>
+
+
+
+
+
+    <script>
+      const App = new Vue({
+        el: '#app',
+        data: {
+          message: "Click all over the screen until you find the evil Ganon. Once he is discovered, beat him up to impress Princess Zelda.",
+        },
+      })
+
+      new Vue({
+  //this targets the div id app
+  el: '#app4',
+  data: {
+    name: '' //this stores data values for ‘name’
+  }
+})
+
+
+      var vue = new Vue({
+  el:"#app2",
+  data: {
+    isShowing:false,
+    count: 0,
+  },
+  methods: {
+        incrementCounter: function() {
+            this.count += 1;
+        }}
+})
+
+const app = new Vue({
+    el: '#app9',
+    data: {
+        count: 0,
+    },
+    methods: {
+        incrementCounter: function() {
+            this.count += 1;
+        }
+    }
+});
+    </script>
+  </body>
+</html>
